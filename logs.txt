@@ -1,0 +1,162 @@
+2023-12-28 09:39:58.517207
+Traceback (most recent call last):
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 92, in wrap
+    func(*args, **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 184, in scrape_data
+    sub_type = get_submission_type(submission)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 163, in get_submission_type
+    elif submission.crosspost_parent_list:
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/base.py", line 35, in __getattr__
+    self._fetch()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/submission.py", line 712, in _fetch
+    data = self._fetch_data()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/submission.py", line 731, in _fetch_data
+    return self._reddit.request(method="GET", params=params, path=path)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 941, in request
+    return self._core.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 328, in request
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 267, in _request_with_retries
+    raise self.STATUS_EXCEPTIONS[response.status_code](response)
+prawcore.exceptions.TooManyRequests: received 429 HTTP response
+
+
+2023-12-28 09:42:04.731794
+Traceback (most recent call last):
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 92, in wrap
+    func(*args, **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 224, in check_data
+    sub_state = get_submission_state(submission)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 152, in get_submission_state
+    if submission.author is None:
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/base.py", line 35, in __getattr__
+    self._fetch()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/submission.py", line 712, in _fetch
+    data = self._fetch_data()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/reddit/submission.py", line 731, in _fetch_data
+    return self._reddit.request(method="GET", params=params, path=path)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 941, in request
+    return self._core.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 328, in request
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 234, in _request_with_retries
+    response, saved_exception = self._make_request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 186, in _make_request
+    response = self._rate_limiter.call(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/rate_limit.py", line 47, in call
+    response = request_function(*args, **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/requestor.py", line 70, in request
+    raise RequestException(exc, args, kwargs) from None
+prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='oauth.reddit.com', port=443): Max retries exceeded with url: /comments/18gy8ph/?limit=2048&sort=confidence&raw_json=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f4e514635e0>: Failed to resolve 'oauth.reddit.com' ([Errno -2] Name or service not known)"))
+
+
+2023-12-28 11:56:10.576903
+Traceback (most recent call last):
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 95, in wrap
+    func(*args, **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 181, in scrape_data
+    for submission in submissions:
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/listing/generator.py", line 63, in __next__
+    self._next_batch()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/listing/generator.py", line 89, in _next_batch
+    self._listing = self._reddit.get(self.url, params=self.params)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 712, in get
+    return self._objectify_request(method="GET", params=params, path=path)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 517, in _objectify_request
+    self.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 941, in request
+    return self._core.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 328, in request
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 234, in _request_with_retries
+    response, saved_exception = self._make_request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 186, in _make_request
+    response = self._rate_limiter.call(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/rate_limit.py", line 46, in call
+    kwargs["headers"] = set_header_callback()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 282, in _set_header_callback
+    self._authorizer.refresh()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 425, in refresh
+    self._request_token(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 155, in _request_token
+    response = self._authenticator._post(url=url, **data)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 51, in _post
+    response = self._requestor.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/requestor.py", line 70, in request
+    raise RequestException(exc, args, kwargs) from None
+prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /api/v1/access_token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f966dc0bc40>: Failed to resolve 'www.reddit.com' ([Errno -2] Name or service not known)"))
+
+
+2023-12-28 11:57:41.757975
+Traceback (most recent call last):
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 95, in wrap
+    func(*args, **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/banbot/__main__.py", line 181, in scrape_data
+    for submission in submissions:
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/listing/generator.py", line 63, in __next__
+    self._next_batch()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/models/listing/generator.py", line 89, in _next_batch
+    self._listing = self._reddit.get(self.url, params=self.params)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 712, in get
+    return self._objectify_request(method="GET", params=params, path=path)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 517, in _objectify_request
+    self.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/util/deprecate_args.py", line 43, in wrapped
+    return func(**dict(zip(_old_args, args)), **kwargs)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/praw/reddit.py", line 941, in request
+    return self._core.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 328, in request
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 254, in _request_with_retries
+    return self._do_retry(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 162, in _do_retry
+    return self._request_with_retries(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 234, in _request_with_retries
+    response, saved_exception = self._make_request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 186, in _make_request
+    response = self._rate_limiter.call(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/rate_limit.py", line 46, in call
+    kwargs["headers"] = set_header_callback()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/sessions.py", line 282, in _set_header_callback
+    self._authorizer.refresh()
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 425, in refresh
+    self._request_token(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 155, in _request_token
+    response = self._authenticator._post(url=url, **data)
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/auth.py", line 51, in _post
+    response = self._requestor.request(
+  File "/home/mx-linux/Desktop/projects/banbot/.venv/lib/python3.9/site-packages/prawcore/requestor.py", line 70, in request
+    raise RequestException(exc, args, kwargs) from None
+prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='www.reddit.com', port=443): Max retries exceeded with url: /api/v1/access_token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f71878d8310>: Failed to resolve 'www.reddit.com' ([Errno -2] Name or service not known)"))
+
+
